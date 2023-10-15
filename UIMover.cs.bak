@@ -1,0 +1,24 @@
+using System.Collections.Generic;
+using Terraria.ModLoader;
+using Terraria.UI;
+
+namespace UIMover
+{
+    public class UIMover : Mod
+    {
+
+        public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
+        {
+            int hotbarIndex = layers.FindIndex(layer => layer.Name.Equals("Vanilla: Hotbar"));
+
+            if (hotbarIndex != -1)
+            {
+                // Define the new position for the hotbar
+                int newX = 300; // Adjust this value as needed
+
+                // Move the hotbar to the right by changing its position
+                layers[hotbarIndex].Left.Set(newX, 0f);
+            }
+        }
+    }
+}
